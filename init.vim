@@ -73,6 +73,7 @@ nnoremap <silent> <Leader>h/ :History/<CR>
 call plug#begin()
 	Plug 'tpope/vim-commentary'
 	Plug 'ionide/Ionide-vim'
+	Plug 'lukas-reineke/indent-blankline.nvim'
 	Plug 'lewis6991/gitsigns.nvim'
 	Plug 'folke/zen-mode.nvim'
 	Plug 'tribela/vim-transparent'
@@ -245,5 +246,10 @@ require('gitsigns').setup {
     changedelete = { text = '~' },
     untracked    = { text = '┆' },
   },
+}
+
+require("indent_blankline").setup {
+	char = '┊',
+	show_trailing_blankline_indent = false,
 }
 EOF
