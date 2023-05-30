@@ -20,6 +20,7 @@ set hlsearch
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
+ set laststatus=0
 set undodir=os.getenv("HOME") .. "/.vim/undodir"
 
 "Color------------------------------------------------------------------- {{{
@@ -86,14 +87,17 @@ call plug#begin()
   Plug 'ryanoasis/vim-devicons'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'edkolev/tmuxline.vim'
 call plug#end()
 
 " Vim-ariline ----------------------------------------------------------- {{{
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_theme='onedark'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-
+let g:tmuxline_preset = 'tmux'
 " powerline symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
@@ -104,7 +108,7 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.dirty='⚡'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline_statusline_ontop = 1
 
 " ALE """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ale_linters = {
