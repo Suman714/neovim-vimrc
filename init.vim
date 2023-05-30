@@ -73,6 +73,7 @@ nnoremap <silent> <Leader>h/ :History/<CR>
 call plug#begin()
 	Plug 'tpope/vim-commentary'
 	Plug 'ionide/Ionide-vim'
+	Plug 'lewis6991/gitsigns.nvim'
 	Plug 'folke/zen-mode.nvim'
 	Plug 'tribela/vim-transparent'
 	Plug 'mbbill/undotree'
@@ -233,3 +234,16 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+
+lua <<EOF
+require('gitsigns').setup {
+  signs = {
+    add          = { text = '│' },
+    change       = { text = '│' },
+    delete       = { text = '_' },
+    topdelete    = { text = '‾' },
+    changedelete = { text = '~' },
+    untracked    = { text = '┆' },
+  },
+}
+EOF
